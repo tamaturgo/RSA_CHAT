@@ -41,18 +41,31 @@ export class MessageController {
     return await this.messageService.getAllMessages();
   }
 
-  @Get('/sender/:senderId')
-  async getMessagesBySenderId(
-    @Param('senderId') senderId: string,
+  @Get('/chat/:chatId')
+  async getMessagesByChatId(
+    @Param('chatId') chatId: string,
   ): Promise<Message[]> {
-    return await this.messageService.getMessagesBySenderId(senderId);
+    return await this.messageService.getMessagesByChatId(chatId);
   }
 
-  @Get('/receiver/:receiverId')
+
+  @Get('/sender/:senderId/chat/:chatId')
+  async getMessagesBySenderId(
+    @Param('senderId') senderId: string,
+    @Param('chatId') chatId: string,
+  ): Promise<Message[]> {
+    return await this.messageService.getMessagesBySenderId(senderId, chatId);
+  }
+
+  @Get('/receiver/:receiverId/chat/:chatId')
   async getMessagesByReceiverId(
     @Param('receiverId') receiverId: string,
+    @Param('chatId') chatId: string,
   ): Promise<Message[]> {
-    return await this.messageService.getMessagesByReceiverId(receiverId);
+    return await this.messageService.getMessagesByReceiverId(
+      receiverId,
+      chatId,
+    );
   }
 
   @Get('/sender/:senderId/receiver/:receiverId')
@@ -65,6 +78,4 @@ export class MessageController {
       receiverId,
     );
   }
-
-  
 }

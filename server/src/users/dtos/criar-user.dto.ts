@@ -13,4 +13,7 @@ export class CreateUserDTO {
 
   @IsNotEmpty()
   readonly keyRSAPublic: string;
+
+  @IsNotEmpty()
+  readonly password: string;
 }

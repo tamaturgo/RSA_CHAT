@@ -12,6 +12,7 @@ export const UserSchema = new mongoose.Schema(
     rankingPosition: Number,
     photoUrl: String,
     keyRSAPublic: String,
+    password: String,
     friends: [
       {
         type: mongoose.Schema.Types.ObjectId,

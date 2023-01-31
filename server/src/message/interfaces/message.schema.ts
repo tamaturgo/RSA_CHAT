@@ -11,7 +11,10 @@ export const MessageSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Users',
     },
-    keyRSAPublic: String,
+    chatId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Chats',
+    },
   },
   {
     timestamps: true,

@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { UserModule } from './users/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { MessageModule } from './message/message.module';
+import { ChatModule } from './chat/chat.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
@@ -13,6 +14,7 @@ import { MessageModule } from './message/message.module';
     ),
     UserModule,
     MessageModule,
+    ChatModule,
   ],
   controllers: [],
   providers: [],

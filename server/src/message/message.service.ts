@@ -28,12 +28,23 @@ export class MessageService {
     return await this.messageModel.find().exec();
   }
 
-  async getMessagesBySenderId(senderId: string): Promise<Message[]> {
-    return await this.messageModel.find({ senderId }).exec();
+  async getMessagesBySenderId(
+    senderId: string,
+    chatId: string,
+  ): Promise<Message[]> {
+    return await this.messageModel.find({ senderId, chatId }).exec();
   }
 
-  async getMessagesByReceiverId(receiverId: string): Promise<Message[]> {
-    return await this.messageModel.find({ receiverId }).exec();
+  async getMessagesByChatId(chatId: string): Promise<Message[]> {
+    return await this.messageModel.find({ chatId }).exec();
+  
+  }
+
+  async getMessagesByReceiverId(
+    receiverId: string,
+    chatId: string,
+  ): Promise<Message[]> {
+    return await this.messageModel.find({ receiverId, chatId }).exec();
   }
 
   async getMessagesBySenderIdAndReceiverId(

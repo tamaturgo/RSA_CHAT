@@ -25,7 +25,7 @@ export default function Login({ navigation }) {
       let userExists = false;
       response.data.forEach((useRes: any) => {
         // Verifica se o usuário existe
-        if (useRes.email === user.email) {
+        if (useRes.email === user.email && useRes.password === user.password) {
           // Se existir, redireciona para a página de produtos
           navigation.navigate("Home");
           userExists = true;
@@ -33,7 +33,7 @@ export default function Login({ navigation }) {
       });
       // Se não existir, exibe um alerta
       if (!userExists) {
-        alert("Usuário não encontrado");
+        alert("E-mail ou senha incorretos.");
       }
     } catch (err) {
       console.log(err);
@@ -41,6 +41,11 @@ export default function Login({ navigation }) {
   }
   return (
     <View style={styles.container}>
+      <View style={styles.logoContainer}>
+        <Text style={styles.logoText}>RSChat</Text>
+        <Text >The Real Security chat</Text>
+      </View>
+
       <View style={styles.inputDiv}>
         <Text>E-mail</Text>
         <TextInput
@@ -66,6 +71,17 @@ export default function Login({ navigation }) {
         }}
       >
         <Text style={{ color: "white", fontWeight: "bold" }}>Login</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.btnCadastro}
+        onPress={() => {
+          navigation.navigate("Signup");
+        }}
+      >
+        <Text style={{ color: "white", fontWeight: "bold" }}>
+          Create Account
+        </Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
@@ -95,5 +111,24 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
+  },
+  btnCadastro: {
+    backgroundColor: "#3333aa",
+    width: 200,
+    height: 40,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+    marginTop: 10,
+  },
+  logoContainer: {
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 70,
+  },
+  logoText: {
+    fontSize: 24,
+    fontWeight: "600",
   },
 });
