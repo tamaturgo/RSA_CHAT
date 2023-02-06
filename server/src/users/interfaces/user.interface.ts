@@ -7,7 +7,7 @@ export interface User extends Document {
   ranking: string;
   rankingPosition: number;
   photoUrl: string;
-  keyRSAPublic: string;
   password: string;
   friends: User[];
+  rsaPublicKey: string;
 }

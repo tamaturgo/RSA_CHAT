@@ -2,6 +2,5 @@ import { Document } from 'mongoose';
 
 export interface Chat extends Document {
   senderId: string;
-  receiverId: string;
-  keyRSAPublic: string;
+  reciverId: string;
 }

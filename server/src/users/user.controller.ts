@@ -67,4 +67,11 @@ export class UserController {
   ): Promise<void> {
     await this.userService.removeFriend(_id, friendId);
   }
+
+  @Get('/publicKey/:userId')
+  async getPublicKey(
+    @Param('userId', ValidatorParamsPipe) userId: string,
+  ): Promise<string> {
+    return await this.userService.getPublicKey(userId);
+  }
 }

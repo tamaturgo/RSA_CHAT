@@ -7,17 +7,14 @@ import { Chat } from './interfaces/chat.interface';
 export class ChatService {
   constructor(@InjectModel('Chats') private readonly chatModel: Model<Chat>) {}
 
-  async createChat(
-    senderId: string,
-    receiverId: string,
-    keyRSAPublic: string,
-  ): Promise<void> {
+  async createChat(senderId: string, reciverId: string): Promise<Chat> {
     const created = new this.chatModel({
       senderId,
-      receiverId,
-      keyRSAPublic,
+      reciverId,
     });
     await created.save();
+
+    return created;
   }
 
   async getAllChats(): Promise<Chat[]> {
@@ -32,17 +29,25 @@ export class ChatService {
     return await this.chatModel.find({ receiverId }).exec();
   }
 
+  async getChatsByReceiverIdAndSenderId(
+    receiverId: string,
+    senderId: string,
+  ): Promise<Chat[]> {
+    const chat1 = await this.chatModel.find({ receiverId, senderId }).exec();
+    const chat2 = await this.chatModel
+      .find({ receiverId: senderId, senderId: receiverId })
+      .exec();
+
+    if (chat1.length > 0) {
+      return chat1;
+    }
+    if (chat2.length > 0) {
+      return chat2;
+    }
+    return [];
+  }
+
   async deleteChatById(_id: string): Promise<void> {
     await this.chatModel.deleteOne({ _id }).exec();
   }
-
-  async getKeysByChatId(chatId: string): Promise<Chat[]> {
-    const result = await this.chatModel.find({ chatId }).exec();
-    const keys = [];
-    result.forEach((item) => {
-      keys.push(item.keyRSAPublic);
-    });
-    return keys;
-  }
-
 }

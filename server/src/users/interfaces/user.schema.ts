@@ -11,7 +11,6 @@ export const UserSchema = new mongoose.Schema(
     ranking: String,
     rankingPosition: Number,
     photoUrl: String,
-    keyRSAPublic: String,
     password: String,
     friends: [
       {
@@ -19,6 +18,7 @@ export const UserSchema = new mongoose.Schema(
         ref: 'Users',
       },
     ],
+    rsaPublicKey: String,
   },
   {
     timestamps: true,

@@ -11,7 +11,7 @@ import {
 import { Chat } from './interfaces/chat.interface';
 import { ChatService } from './chat.service';
 
-@Controller('api/v1/message')
+@Controller('api/v1/chat')
 export class ChatController {
   constructor(private readonly chatService: ChatService) {}
 
@@ -19,10 +19,10 @@ export class ChatController {
   @UsePipes(ValidationPipe)
   async createChat(
     @Body('senderId') senderId: string,
-    @Body('receiverId') receiverId: string,
-    @Body('keyRSAPublic') keyRSAPublic: string,
-  ): Promise<void> {
-    await this.chatService.createChat(senderId, receiverId, keyRSAPublic);
+    @Body('reciverId') reciverId: string,
+  ): Promise<Chat> {
+    const chat = await this.chatService.createChat(senderId, reciverId);
+    return chat;
   }
 
   @Delete('/:_id')
@@ -42,15 +42,21 @@ export class ChatController {
     return await this.chatService.getChatsBySenderId(senderId);
   }
 
-  @Get('/receiver/:receiverId')
+  @Get('/reciver/:receiverId')
   async getChatsByReceiverId(
     @Param('receiverId') receiverId: string,
   ): Promise<Chat[]> {
     return await this.chatService.getChatsByReceiverId(receiverId);
   }
 
-  @Get('/keys/:chatId')
-  async getKeysByChatId(@Param('chatId') chatId: string): Promise<Chat[]> {
-    return await this.chatService.getKeysByChatId(chatId);
+  @Get('/reciver/:receiverId/sender/:senderId')
+  async getChatsByReceiverIdAndSenderId(
+    @Param('receiverId') receiverId: string,
+    @Param('senderId') senderId: string,
+  ): Promise<Chat[]> {
+    return await this.chatService.getChatsByReceiverIdAndSenderId(
+      receiverId,
+      senderId,
+    );
   }
 }

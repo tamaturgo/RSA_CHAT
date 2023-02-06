@@ -8,8 +8,8 @@ export class SendMessageDTO {
   readonly senderId: string;
 
   @IsNotEmpty()
-  readonly receiverId: string;
+  readonly reciverId: string;
 
   @IsNotEmpty()
-  readonly keyRSAPublic: string;
+  readonly chatId: string;
 }

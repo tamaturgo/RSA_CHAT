@@ -20,14 +20,14 @@ export class MessageController {
   async sendMessage(
     @Body('message') message: string,
     @Body('senderId') senderId: string,
-    @Body('receiverId') receiverId: string,
-    @Body('keyRSAPublic') keyRSAPublic: string,
-  ): Promise<void> {
-    await this.messageService.sendMessage(
+    @Body('reciverId') reciverId: string,
+    @Body('chatId') chatId: string,
+  ): Promise<String> {
+    return await this.messageService.sendMessage(
       message,
       senderId,
-      receiverId,
-      keyRSAPublic,
+      reciverId,
+      chatId,
     );
   }
 
@@ -47,7 +47,6 @@ export class MessageController {
   ): Promise<Message[]> {
     return await this.messageService.getMessagesByChatId(chatId);
   }
-
 
   @Get('/sender/:senderId/chat/:chatId')
   async getMessagesBySenderId(

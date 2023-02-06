@@ -122,4 +122,12 @@ export class userService {
     }
     return founded.friends;
   }
+
+  async getPublicKey(_id: string): Promise<string> {
+    const user = await this.userModel.find({ _id }).exec();
+    if (!user) {
+      throw new NotFoundException(`jogador com o id (${_id}) não existe`);
+    }
+    return user[0].rsaPublicKey;
+  }
 }

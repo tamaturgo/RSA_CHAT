@@ -10,6 +10,7 @@ import {
 import axios from "axios";
 import { useEffect, useState } from "react";
 const RSAKey = require("react-native-rsa");
+import localStorage from "react-native-sync-localstorage";
 
 export default function Signup({ navigation }) {
   const [user, setUser] = useState({
@@ -28,31 +29,37 @@ export default function Signup({ navigation }) {
         email: user.email,
         password: user.password,
         phoneNumber: user.phoneNumber,
+        rsaPublicKey: "",
       };
 
       try {
         // Gera a chave pública e privada
         // console.log("Gerando as chaves...");
 
-        // const bits = 1024;
-        // const exponent = "10001"; // must be a string. This is hex string. decimal = 65537
-        // var RSA = new RSAKey();
-        // let r = RSA.generate(bits, exponent);
-        // console.log("Chaves geradas com sucesso!\n");
-        // console.log("Chave pública: ", RSA.getPublicString());
-        // console.log("\n\nChave privada: ", RSA.getPrivateString());
+        const bits = 1024;
+        const exponent = "10001"; // must be a string. This is hex string. decimal = 65537
+        var RSA = new RSAKey();
+        let r = RSA.generate(bits, exponent);
+        const publicKey = RSA.getPublicString(); // return json encoded string
+        const privateKey = RSA.getPrivateString(); // return json encoded string
+        userDTO.rsaPublicKey = publicKey;
+        console.log("Chaves geradas com sucesso!");
 
+        // Salva a chave privada no armazenamento local
+        console.log("Salvando a chave privada no armazenamento local...");
+        localStorage.setItem("privateKey" + userDTO.email, privateKey);
 
-        console.log("Enviando dados para o servidor...")
+        console.log("Chave privada salva com sucesso!");
+
+        console.log("Enviando dados para o servidor...");
         const response = await axios.post(
-          "http://10.0.2.2:8080/api/v1/user",
+          "http://192.168.1.9:8080/api/v1/user",
           userDTO
         );
         console.log("Dados enviados com sucesso!\n");
         console.log("Resposta do servidor: ", response.data);
         alert("Usuário criado com sucesso!");
         navigation.navigate("Login");
-
       } catch (err) {
         console.log("Erro ao gerar as chaves: ", err);
       }

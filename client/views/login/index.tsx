@@ -19,15 +19,22 @@ export default function Login({ navigation }) {
 
   async function login() {
     try {
-      const response = await axios.get("http://10.0.2.2:8080/api/v1/user");
+      const response = await axios.get("http://192.168.1.9:8080/api/v1/user");
 
       // Percorre o array de usuários
       let userExists = false;
       response.data.forEach((useRes: any) => {
         // Verifica se o usuário existe
         if (useRes.email === user.email && useRes.password === user.password) {
+          const userObj = {
+            id: useRes._id,
+            name: useRes.name,
+            email: useRes.email,
+            rsaPublicKey: useRes.rsaPublicKey,
+          };
+
           // Se existir, redireciona para a página de produtos
-          navigation.navigate("Home");
+          navigation.navigate("Home", { user: userObj });
           userExists = true;
         }
       });
@@ -39,11 +46,12 @@ export default function Login({ navigation }) {
       console.log(err);
     }
   }
+
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
         <Text style={styles.logoText}>RSChat</Text>
-        <Text >The Real Security chat</Text>
+        <Text>The Real Security chat</Text>
       </View>
 
       <View style={styles.inputDiv}>

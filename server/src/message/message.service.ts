@@ -13,15 +13,20 @@ export class MessageService {
     message: string,
     senderId: string,
     receiverId: string,
-    keyRSAPublic: string,
-  ): Promise<void> {
+    chatId: string,
+  ): Promise<String> {
     const created = new this.messageModel({
       message,
       senderId,
       receiverId,
-      keyRSAPublic,
+      chatId,
     });
     await created.save();
+
+    // Get the message id
+    const message_id = created._id;
+
+    return message_id;
   }
 
   async getAllMessages(): Promise<Message[]> {
@@ -37,7 +42,6 @@ export class MessageService {
 
   async getMessagesByChatId(chatId: string): Promise<Message[]> {
     return await this.messageModel.find({ chatId }).exec();
-  
   }
 
   async getMessagesByReceiverId(
@@ -57,5 +61,4 @@ export class MessageService {
   async deleteMessageById(_id: string): Promise<void> {
     await this.messageModel.deleteOne({ _id }).exec();
   }
-
 }
