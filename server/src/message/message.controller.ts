@@ -21,14 +21,8 @@ export class MessageController {
     @Body('message') message: string,
     @Body('senderId') senderId: string,
     @Body('reciverId') reciverId: string,
-    @Body('chatId') chatId: string,
   ): Promise<String> {
-    return await this.messageService.sendMessage(
-      message,
-      senderId,
-      reciverId,
-      chatId,
-    );
+    return await this.messageService.sendMessage(message, senderId, reciverId);
   }
 
   @Delete('/:_id')

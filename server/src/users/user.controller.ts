@@ -26,7 +26,6 @@ export class UserController {
   }
 
   @Put(':_id')
-  @UsePipes(ValidationPipe)
   async updatePlayer(
     @Body() updateUserDTO: UpdateUserDTO,
     @Param('_id', ValidatorParamsPipe) _id: string,

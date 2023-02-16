@@ -9,7 +9,4 @@ export class SendMessageDTO {
 
   @IsNotEmpty()
   readonly reciverId: string;
-
-  @IsNotEmpty()
-  readonly chatId: string;
 }

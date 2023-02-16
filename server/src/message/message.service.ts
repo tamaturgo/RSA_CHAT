@@ -12,14 +12,12 @@ export class MessageService {
   async sendMessage(
     message: string,
     senderId: string,
-    receiverId: string,
-    chatId: string,
+    reciverId: string,
   ): Promise<String> {
     const created = new this.messageModel({
       message,
       senderId,
-      receiverId,
-      chatId,
+      reciverId,
     });
     await created.save();
 
