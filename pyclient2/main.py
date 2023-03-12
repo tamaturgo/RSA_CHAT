@@ -11,16 +11,53 @@ import threading
 import time
 
 
+class Logger:
+    def __init__(self, filename):
+        self.filename = filename
+        with open(self.filename, "w") as f:
+            f.write("")
+        self.log_info("Logger started")
+
+    def log(self, message):
+        with open(self.filename, "a") as f:
+            f.write(message + " " + str(datetime.now()) + " \r \n")
+
+    def log_error(self, message):
+        with open(self.filename, "a") as f:
+            f.write("ERROR: " + message + " " + str(datetime.now()) + " \r \n")
+
+    def log_info(self, message):
+        with open(self.filename, "a") as f:
+            f.write("INFO: " + message + " " + str(datetime.now()) + " \r \n")
+
+    def log_warning(self, message):
+        with open(self.filename, "a") as f:
+            f.write("WARNING: " + message + " " +
+                    str(datetime.now()) + " \r \n")
+
+    def log_success(self, message):
+        with open(self.filename, "a") as f:
+            f.write("SUCCESS: " + message + " " +
+                    str(datetime.now()) + " \r \n")
+
+    def debug(self, message):
+        with open(self.filename, "a") as f:
+            f.write("DEBUG: " + message + " " + str(datetime.now()) + " \r \n")
+
+
 class UserDto:
     def __init__(self, email, password, name):
         self.password = password
         self.phoneNumber = 9999999999
         self.email = email
         self.name = name
-        self.rsaPublicKey = 999999
+        self.rsaPublicKey = (7, 11)
 
     def set_rsa_public_key(self, key):
         self.rsaPublicKey = key
+
+
+debug_logger = Logger("pyclient2/debug.log")
 
 
 class Application:
@@ -35,8 +72,7 @@ class Application:
     def __init__(self, master):
         self.master = master
         master.title("CHAT RSA")
-        # Login
-        self.login_view()
+        debug_logger.log_info("Application started")
 
         # RSA Generate Keys
         self.rsa = RSA()
@@ -48,13 +84,8 @@ class Application:
 
         self.save_keys(self.private_key, self.public_key)
 
-        print("Private Key: ", self.private_key)
-        print("Public Key: ", self.public_key)
-
-        print("Message: Hello World")
-        self.encrypted_message = self.rsa.encrypt("Hello World")
-        print("Encrypted Message: ", self.encrypted_message)
-        print("Decrypted Message: ", self.rsa.decrypt(self.encrypted_message))
+        # Login
+        self.login_view()
     # ! -- Views --
     # ? Login
 
@@ -175,8 +206,8 @@ class Application:
 
     def send_create_user_request(self, user):
         try:
-            print("Sending request to server")
-            print(user.__dict__)
+            debug_logger.debug("Sending request to server")
+            debug_logger.debug(str(user.__dict__))
             response = requests.post(
                 "http://localhost:8080/api/v1/user", json=user.__dict__)
 
@@ -198,7 +229,8 @@ class Application:
             response = requests.get(url)
             data = response.json()
             df = pd.DataFrame(data)
-            print(df)
+
+            debug_logger.debug("Login Method" + str(df))
             df = df[df['email'] == username]
             df = df[df['password'] == password]
             if df.empty:
@@ -208,9 +240,15 @@ class Application:
                 self.frame.destroy()
                 self.chat_view()
 
+                self.save_keys(self.private_key, self.public_key)
+
+                debug_logger.log_success(
+                    "Private Key: " + str(self.private_key) + " Public Key: " + str(self.public_key))
+
                 # ? Load keys from file
                 with open('pyclient2/private_key.txt', 'r') as f:
                     private_key = f.read()
+
                 with open('pyclient2/public_key.txt', 'r') as f:
                     public_key = f.read()
 
@@ -240,16 +278,56 @@ class Application:
         response = requests.get(url)
         data = response.json()
         df = pd.DataFrame(data)
+
+        # Drop columns
+        df = df.drop(columns=['password',
+                     'friends', 'phoneNumber', 'email', 'createdAt'])
+        users_logger = Logger("pyclient2/client1_users.log")
+
+        # Drop status neverConnected
+        df = df[df['status'] != "neverConnected"]
+
+        # Calc the time difference between now and last updateAt
+
+        # Get the current time
+        now = datetime.now()
+        # Convert to timestamp
+
+        for index, row in df.iterrows():
+            # Convert to timestamp
+            last_update = datetime.strptime(
+                row['updatedAt'], '%Y-%m-%dT%H:%M:%S.%fZ')
+            timestamp_last_update = datetime.timestamp(last_update)
+            now_timestamp = time.time()
+            # Calc the time difference
+
+            # Add +4 hours to timestamp to convert to GMT+4
+            now_timestamp = now_timestamp + 14400
+
+            time_difference = now_timestamp - timestamp_last_update
+            # If the time difference is greater than 2 minutes, set status to offline
+            if time_difference > 120:
+                df.at[index, 'status'] = "offline"
+
+        users_logger.log_info("Getting all users")
+        users_logger.log_info(str(df))
+
+        # Filter the dataframe to get only the users that are online
+        df = df[df['status'] == "online"]
+
+        users_logger.log_info("Getting only online users")
+        users_logger.log_info(str(df))
+
         return df
 
     def send_update_user_request(self, user, userid):
         try:
-            print("Sending request to server")
-            print(user.__dict__)
+            debug_logger.log_info("Function: send_update_user_request")
+            debug_logger.log_info("Updating user on database")
+            debug_logger.debug(str(user.__dict__))
             response = requests.put(
                 "http://localhost:8080/api/v1/user/" + userid, json=user.__dict__)
 
-            print(response)
         except requests.exceptions.ConnectionError:
             self.label_warning.configure(text="Error connecting to server")
 
@@ -272,12 +350,6 @@ class Application:
         self.send_create_user_request(user)
 
     #
-    #
-    #
-    #
-    #
-    #
-    #
     # ? Chat
 
     def chat_view(self):
@@ -287,21 +359,24 @@ class Application:
         self.group_frame_messages = ctk.CTkFrame(self.frame)
 
         self.messages_received = ctk.CTkLabel(
-            self.group_frame_messages, text="", text_color="#0f003f", wraplength=900, justify="left")
+            self.group_frame_messages, text="", text_color="#FFFFFF", wraplength=900, justify="left")
         self.messages_received.pack(pady=20, padx=20, side="left")
-
-        self.group_frame_send = ctk.CTkFrame(self.frame)
-        self.group_frame_send.pack(pady=0, padx=0, expand=True)
-
-        self.message_entry = ctk.CTkEntry(self.group_frame_send)
-        self.message_entry.pack(pady=0, padx=0, fill="both", expand=True)
-
-        self.button = ctk.CTkButton(
-            self.group_frame_send, text="Send", command=self.send_message)
-        self.button.pack(pady=0, padx=0)
 
         self.group_frame_messages.pack(
             pady=0, padx=0, fill="both", expand=True)
+
+        self.group_frame_send = ctk.CTkFrame(self.frame)
+        self.group_frame_send.pack(
+            pady=0, padx=0,  side="bottom")
+
+        self.message_entry = ctk.CTkEntry(self.group_frame_send)
+        self.message_entry.pack(
+            pady=0, padx=0, fill="both", expand=True,  side="left", ipady=10)
+
+        self.button = ctk.CTkButton(
+            self.group_frame_send, text="Send", command=self.send_message)
+        self.button.pack(pady=0, padx=0, fill="both",
+                         expand=True, side="right")
 
         # Create thread to update messages
         thread = threading.Thread(target=self.update_messages)
@@ -311,9 +386,16 @@ class Application:
         while True:
             self.load_messages()
             time.sleep(2)
+            self.set_status_online()
+
+    def set_status_online(self):
+        url = "http://localhost:8080/api/v1/user/" + \
+            self.logged_user_id + "/changeStatus"
+        body = {"status": "online"}
+        response = requests.put(url, json=body)
+        debug_logger.log_info("Function: set_status_online")
 
     def load_messages(self):
-        print("\n\nLoading messages")
         url = "http://localhost:8080/api/v1/message"
         response = requests.get(url)
         data = response.json()
@@ -370,8 +452,12 @@ class Application:
                 message = message[1]
 
                 if message_sender == self.logged_user_id:
-                    df = df.append({'senderId': message_sender, 'message': message,
-                                    'createdAt': message_date, 'reciverId': self.logged_user_id}, ignore_index=True)
+                    # Concat
+                    pd.concat([df, pd.DataFrame({'senderId': message_sender, 'message': message,
+                              'createdAt': message_date, 'reciverId': self.logged_user_id}, index=[0])], ignore_index=True)
+
+                    # df = df.append({'senderId': message_sender, 'message': message,
+                    #               'createdAt': message_date, 'reciverId': self.logged_user_id}, ignore_index=True)
 
         # ? Sort by date and remove duplicates
 
@@ -389,12 +475,12 @@ class Application:
         for index, row in df.iterrows():
             if index < 10:
                 if row['senderId'] == self.logged_user_id:
-                    messages_string += "##### You: " + row['message'] + " - " + \
+                    messages_string += "-- You: " + row['message'] + " - " + \
                         row['createdAt'] + " \n ------ \n"
                 else:
                     username = self.getUserName(row['senderId'])
 
-                    messages_string += "&&&&&"+username + ": " + \
+                    messages_string += "----------------------- "+username + ": " + \
                         row['message'] + " - " + row['createdAt'] + \
                         " \n ------ \n"
 
@@ -448,7 +534,7 @@ class Application:
 
     def send_message_request(self, message, reciver):
         try:
-            print("Sending request to server")
+            debug_logger.log_info("Sending message encrypted: " + str(message))
             senderId = self.logged_user_id
             reciverId = reciver
 
@@ -465,6 +551,7 @@ class Application:
                 'http://localhost:8080/api/v1/message', json=data)
 
             self.message_entry.delete(0, 'end')
+            debug_logger.log_success("Message sent successfully")
 
         except requests.exceptions.ConnectionError:
             self.label_warning.configure(text="Error connecting to server")

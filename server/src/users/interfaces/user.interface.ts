@@ -10,4 +10,5 @@ export interface User extends Document {
   password: string;
   friends: User[];
   rsaPublicKey: string;
+  status: string;
 }

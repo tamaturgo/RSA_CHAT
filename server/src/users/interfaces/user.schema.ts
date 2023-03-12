@@ -19,6 +19,10 @@ export const UserSchema = new mongoose.Schema(
       },
     ],
     rsaPublicKey: String,
+    status: {
+      type: String,
+      default: 'neverConnected',
+    },
   },
   {
     timestamps: true,

@@ -11,11 +11,17 @@ class RSA:
     def generate_keys(self):
         p = PrimeNumberGenerator(100).get_a_random_prime()
         q = PrimeNumberGenerator(100).get_a_random_prime()
+
         if p < q:
             p, q = q, p
         n = p * q
         phi = (p - 1) * (q - 1)
+
         e = PrimeNumberGenerator(100).get_a_random_prime()
+
+        if e > phi:
+            e, phi = phi, e
+
         d = self.modinv(e, phi)
 
         self.public_key = (n, e)

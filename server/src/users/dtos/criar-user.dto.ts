@@ -16,4 +16,6 @@ export class CreateUserDTO {
 
   @IsNotEmpty()
   readonly rsaPublicKey: string;
+
+  readonly status: string;
 }

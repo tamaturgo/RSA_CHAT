@@ -73,4 +73,12 @@ export class UserController {
   ): Promise<string> {
     return await this.userService.getPublicKey(userId);
   }
+
+  @Put('/:_id/changeStatus')
+  async changeStatus(
+    @Param('_id', ValidatorParamsPipe) _id: string,
+    @Body('status') status: string,
+  ): Promise<void> {
+    await this.userService.changeStatus(_id, status);
+  }
 }

@@ -1,0 +1,14 @@
+INFO: Logger started 2023-03-12 16:27:47.690984  
+INFO: Application started 2023-03-12 16:27:47.928714  
+DEBUG: Login Method                        _id  ...  status
+0  63e53c35ba9c6d9cd1f25c79  ...  online
+1  63e53c7cba9c6d9cd1f25c7c  ...  online
+2  63e54105febb8f0e9e9c09d5  ...  online
+
+[3 rows x 11 columns] 2023-03-12 16:27:58.039240  
+SUCCESS: Private Key: (469, 167) Public Key: (469, 83) 2023-03-12 16:27:58.077670  
+INFO: Function: send_update_user_request 2023-03-12 16:27:58.078029  
+INFO: Updating user on database 2023-03-12 16:27:58.078062  
+DEBUG: {'password': '0000', 'phoneNumber': 9999999999, 'email': 'd@gmail.com', 'name': 'Dio', 'rsaPublicKey': '469,83'} 2023-03-12 16:27:58.078092  
+INFO: Function: set_status_online 2023-03-12 16:28:00.424898  
+INFO: Function: set_status_online 2023-03-12 16:28:03.560738  

@@ -130,4 +130,12 @@ export class userService {
     }
     return user[0].rsaPublicKey;
   }
+
+  async changeStatus(_id: string, status: string): Promise<void> {
+    const user = await this.userModel.find({ _id }).exec();
+    if (!user) {
+      throw new NotFoundException(`jogador com o id (${_id}) não existe`);
+    }
+    await this.userModel.findOneAndUpdate({ _id }, { $set: { status } });
+  }
 }

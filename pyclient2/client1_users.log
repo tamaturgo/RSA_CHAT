@@ -1,0 +1,10 @@
+INFO: Logger started 2023-03-12 16:20:27.448260  
+INFO: Getting all users 2023-03-12 16:20:27.449493  
+INFO:                         _id     name rsaPublicKey                 updatedAt  __v   status
+0  63e53c35ba9c6d9cd1f25c79      Dio       111,13  2023-03-12T20:20:24.051Z    0   online
+1  63e53c7cba9c6d9cd1f25c7c  wadrian      1247,71  2023-03-07T20:22:51.635Z    0  offline
+2  63e54105febb8f0e9e9c09d5     Alex        267,3  2023-03-12T20:20:26.617Z    0   online 2023-03-12 16:20:27.455959  
+INFO: Getting only online users 2023-03-12 16:20:27.458289  
+INFO:                         _id  name rsaPublicKey                 updatedAt  __v  status
+0  63e53c35ba9c6d9cd1f25c79   Dio       111,13  2023-03-12T20:20:24.051Z    0  online
+2  63e54105febb8f0e9e9c09d5  Alex        267,3  2023-03-12T20:20:26.617Z    0  online 2023-03-12 16:20:27.464451  
