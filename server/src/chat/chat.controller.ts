@@ -16,7 +16,7 @@ export class ChatController {
   constructor(private readonly chatService: ChatService) {}
 
   @Get()
-  getAllChats(): String {
+  getAllChats(): string {
     return 'Hello World';
   }
 }

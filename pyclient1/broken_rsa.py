@@ -33,12 +33,3 @@ def find_private_key(public_key):
 
 
 print("Brute Force:", find_private_key((529, 53)))
-
-
-count_keys_tested = 0
-
-
-while count_keys_tested < 100:
-    rsa = RSA()
-
-    try:

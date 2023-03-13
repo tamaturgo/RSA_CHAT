@@ -1,14 +1,275 @@
-INFO: Logger started 2023-03-12 16:27:47.690984  
-INFO: Application started 2023-03-12 16:27:47.928714  
-DEBUG: Login Method                        _id  ...  status
-0  63e53c35ba9c6d9cd1f25c79  ...  online
-1  63e53c7cba9c6d9cd1f25c7c  ...  online
-2  63e54105febb8f0e9e9c09d5  ...  online
+INFO: Logger started 2023-03-12 21:51:17.458831  
+INFO: Application started 2023-03-12 21:51:17.610035  
+DEBUG: Login Method                        _id phoneNumber  ... __v  status
+0  63e53c35ba9c6d9cd1f25c79  9999999999  ...   0  online
+1  63e53c7cba9c6d9cd1f25c7c  9999999999  ...   0  online
+2  63e54105febb8f0e9e9c09d5  9999999999  ...   0  online
 
-[3 rows x 11 columns] 2023-03-12 16:27:58.039240  
-SUCCESS: Private Key: (469, 167) Public Key: (469, 83) 2023-03-12 16:27:58.077670  
-INFO: Function: send_update_user_request 2023-03-12 16:27:58.078029  
-INFO: Updating user on database 2023-03-12 16:27:58.078062  
-DEBUG: {'password': '0000', 'phoneNumber': 9999999999, 'email': 'd@gmail.com', 'name': 'Dio', 'rsaPublicKey': '469,83'} 2023-03-12 16:27:58.078092  
-INFO: Function: set_status_online 2023-03-12 16:28:00.424898  
-INFO: Function: set_status_online 2023-03-12 16:28:03.560738  
+[3 rows x 11 columns] 2023-03-12 21:51:52.015909  
+SUCCESS: Private Key: (553, 239) Public Key: (553, 47) 2023-03-12 21:51:52.065837  
+INFO: Function: send_update_user_request 2023-03-12 21:51:52.066173  
+INFO: Updating user on database 2023-03-12 21:51:52.066203  
+DEBUG: {'password': '0000', 'phoneNumber': 9999999999, 'email': 'a@gmail.com', 'name': 'Alex', 'rsaPublicKey': '553,47'} 2023-03-12 21:51:52.066230  
+INFO: Function: set_status_online 2023-03-12 21:51:54.400096  
+INFO: Function: set_status_online 2023-03-12 21:51:57.456556  
+INFO: Function: set_status_online 2023-03-12 21:52:00.531549  
+INFO: Sending message encrypted: [1640, 1514, 1475, 55, 1006, 143, 892, 699] 2023-03-12 21:52:01.641320  
+SUCCESS: Message sent successfully 2023-03-12 21:52:01.739881  
+INFO: Sending message encrypted: [109, 81, 177, 108, 154, 193, 100, 31] 2023-03-12 21:52:01.739977  
+SUCCESS: Message sent successfully 2023-03-12 21:52:01.830062  
+INFO: Function: set_status_online 2023-03-12 21:52:03.661667  
+INFO: Function: set_status_online 2023-03-12 21:52:06.785238  
+INFO: Function: set_status_online 2023-03-12 21:52:09.999420  
+INFO: Function: set_status_online 2023-03-12 21:52:13.084110  
+INFO: Function: set_status_online 2023-03-12 21:52:16.233940  
+INFO: Sending message encrypted: [1404, 940, 1514, 55, 699, 1173, 1640, 393, 1404, 143, 892, 192, 1514, 55, 1173, 699, 91, 143, 270] 2023-03-12 21:52:19.096419  
+SUCCESS: Message sent successfully 2023-03-12 21:52:19.192419  
+INFO: Sending message encrypted: [106, 198, 81, 108, 31, 205, 109, 103, 106, 193, 100, 10, 81, 108, 205, 31, 184, 193, 147] 2023-03-12 21:52:19.192522  
+SUCCESS: Message sent successfully 2023-03-12 21:52:19.282058  
+INFO: Function: set_status_online 2023-03-12 21:52:19.372919  
+INFO: Function: set_status_online 2023-03-12 21:52:22.592695  
+INFO: Function: set_status_online 2023-03-12 21:52:25.762735  
+INFO: Function: set_status_online 2023-03-12 21:52:28.917767  
+INFO: Function: set_status_online 2023-03-12 21:52:32.029618  
+INFO: Function: set_status_online 2023-03-12 21:52:35.214350  
+INFO: Function: set_status_online 2023-03-12 21:52:38.282650  
+INFO: Function: set_status_online 2023-03-12 21:52:41.310811  
+INFO: Function: set_status_online 2023-03-12 21:52:44.346906  
+INFO: Function: set_status_online 2023-03-12 21:52:47.688260  
+INFO: Function: set_status_online 2023-03-12 21:52:50.885067  
+INFO: Function: set_status_online 2023-03-12 21:52:54.009840  
+INFO: Function: set_status_online 2023-03-12 21:52:57.128461  
+INFO: Function: set_status_online 2023-03-12 21:53:00.231885  
+INFO: Function: set_status_online 2023-03-12 21:53:03.297434  
+INFO: Function: set_status_online 2023-03-12 21:53:06.372371  
+INFO: Function: set_status_online 2023-03-12 21:53:09.479035  
+INFO: Function: set_status_online 2023-03-12 21:53:12.609704  
+INFO: Function: set_status_online 2023-03-12 21:53:15.743544  
+INFO: Function: set_status_online 2023-03-12 21:53:18.860138  
+INFO: Function: set_status_online 2023-03-12 21:53:21.989423  
+INFO: Function: set_status_online 2023-03-12 21:53:25.139154  
+INFO: Function: set_status_online 2023-03-12 21:53:28.243148  
+INFO: Function: set_status_online 2023-03-12 21:53:31.347102  
+INFO: Function: set_status_online 2023-03-12 21:53:34.548720  
+INFO: Function: set_status_online 2023-03-12 21:53:37.804466  
+INFO: Function: set_status_online 2023-03-12 21:53:41.041129  
+INFO: Function: set_status_online 2023-03-12 21:53:44.182177  
+INFO: Function: set_status_online 2023-03-12 21:53:47.304763  
+INFO: Function: set_status_online 2023-03-12 21:53:50.329148  
+INFO: Function: set_status_online 2023-03-12 21:53:53.347585  
+INFO: Function: set_status_online 2023-03-12 21:53:56.384750  
+INFO: Function: set_status_online 2023-03-12 21:53:59.491538  
+INFO: Function: set_status_online 2023-03-12 21:54:02.563948  
+INFO: Function: set_status_online 2023-03-12 21:54:05.764474  
+INFO: Function: set_status_online 2023-03-12 21:54:08.883210  
+INFO: Function: set_status_online 2023-03-12 21:54:12.046476  
+INFO: Function: set_status_online 2023-03-12 21:54:15.288326  
+INFO: Function: set_status_online 2023-03-12 21:54:18.443042  
+INFO: Function: set_status_online 2023-03-12 21:54:21.545613  
+INFO: Function: set_status_online 2023-03-12 21:54:24.701531  
+INFO: Function: set_status_online 2023-03-12 21:54:27.871203  
+INFO: Function: set_status_online 2023-03-12 21:54:30.991576  
+INFO: Function: set_status_online 2023-03-12 21:54:34.068722  
+INFO: Function: set_status_online 2023-03-12 21:54:37.166294  
+INFO: Function: set_status_online 2023-03-12 21:54:40.306240  
+INFO: Function: set_status_online 2023-03-12 21:54:43.469457  
+INFO: Function: set_status_online 2023-03-12 21:54:46.596541  
+INFO: Function: set_status_online 2023-03-12 21:54:49.705164  
+INFO: Function: set_status_online 2023-03-12 21:54:52.924181  
+INFO: Function: set_status_online 2023-03-12 21:54:56.129311  
+INFO: Function: set_status_online 2023-03-12 21:54:59.300195  
+INFO: Function: set_status_online 2023-03-12 21:55:02.481294  
+INFO: Function: set_status_online 2023-03-12 21:55:05.689701  
+INFO: Function: set_status_online 2023-03-12 21:55:08.853560  
+INFO: Function: set_status_online 2023-03-12 21:55:12.046101  
+INFO: Function: set_status_online 2023-03-12 21:55:15.266548  
+INFO: Function: set_status_online 2023-03-12 21:55:18.442451  
+INFO: Function: set_status_online 2023-03-12 21:55:21.617981  
+INFO: Function: set_status_online 2023-03-12 21:55:24.783165  
+INFO: Function: set_status_online 2023-03-12 21:55:27.962697  
+INFO: Function: set_status_online 2023-03-12 21:55:31.344709  
+INFO: Function: set_status_online 2023-03-12 21:55:34.558592  
+INFO: Function: set_status_online 2023-03-12 21:55:37.818335  
+INFO: Function: set_status_online 2023-03-12 21:55:40.992962  
+INFO: Function: set_status_online 2023-03-12 21:55:44.044257  
+INFO: Function: set_status_online 2023-03-12 21:55:47.095970  
+INFO: Function: set_status_online 2023-03-12 21:55:50.143346  
+INFO: Function: set_status_online 2023-03-12 21:55:53.205242  
+INFO: Function: set_status_online 2023-03-12 21:55:56.364516  
+INFO: Function: set_status_online 2023-03-12 21:55:59.536784  
+INFO: Function: set_status_online 2023-03-12 21:56:02.621312  
+INFO: Function: set_status_online 2023-03-12 21:56:05.761288  
+INFO: Function: set_status_online 2023-03-12 21:56:08.888079  
+INFO: Function: set_status_online 2023-03-12 21:56:12.121105  
+INFO: Function: set_status_online 2023-03-12 21:56:15.216645  
+INFO: Function: set_status_online 2023-03-12 21:56:18.276586  
+INFO: Function: set_status_online 2023-03-12 21:56:21.446672  
+INFO: Function: set_status_online 2023-03-12 21:56:24.524603  
+INFO: Function: set_status_online 2023-03-12 21:56:27.614845  
+INFO: Function: set_status_online 2023-03-12 21:56:30.667168  
+INFO: Function: set_status_online 2023-03-12 21:56:33.780310  
+INFO: Function: set_status_online 2023-03-12 21:56:36.873813  
+INFO: Function: set_status_online 2023-03-12 21:56:39.969812  
+INFO: Function: set_status_online 2023-03-12 21:56:43.130079  
+INFO: Function: set_status_online 2023-03-12 21:56:46.291521  
+INFO: Function: set_status_online 2023-03-12 21:56:49.453068  
+INFO: Function: set_status_online 2023-03-12 21:56:52.614378  
+INFO: Function: set_status_online 2023-03-12 21:56:55.754748  
+INFO: Function: set_status_online 2023-03-12 21:56:58.889053  
+INFO: Function: set_status_online 2023-03-12 21:57:02.038139  
+INFO: Function: set_status_online 2023-03-12 21:57:05.200564  
+INFO: Function: set_status_online 2023-03-12 21:57:08.372716  
+INFO: Function: set_status_online 2023-03-12 21:57:11.550384  
+INFO: Function: set_status_online 2023-03-12 21:57:14.623977  
+INFO: Function: set_status_online 2023-03-12 21:57:17.659294  
+INFO: Function: set_status_online 2023-03-12 21:57:20.898433  
+INFO: Function: set_status_online 2023-03-12 21:57:23.983573  
+INFO: Function: set_status_online 2023-03-12 21:57:27.114342  
+INFO: Function: set_status_online 2023-03-12 21:57:30.210591  
+INFO: Function: set_status_online 2023-03-12 21:57:33.286495  
+INFO: Function: set_status_online 2023-03-12 21:57:36.462708  
+INFO: Function: set_status_online 2023-03-12 21:57:39.624107  
+INFO: Function: set_status_online 2023-03-12 21:57:42.709904  
+INFO: Function: set_status_online 2023-03-12 21:57:45.800293  
+INFO: Function: set_status_online 2023-03-12 21:57:48.874044  
+INFO: Function: set_status_online 2023-03-12 21:57:51.961293  
+INFO: Function: set_status_online 2023-03-12 21:57:55.071863  
+INFO: Function: set_status_online 2023-03-12 21:57:58.217339  
+INFO: Function: set_status_online 2023-03-12 21:58:01.355091  
+INFO: Function: set_status_online 2023-03-12 21:58:04.482382  
+INFO: Function: set_status_online 2023-03-12 21:58:07.638298  
+INFO: Function: set_status_online 2023-03-12 21:58:10.761180  
+INFO: Function: set_status_online 2023-03-12 21:58:13.847046  
+INFO: Function: set_status_online 2023-03-12 21:58:16.938512  
+INFO: Function: set_status_online 2023-03-12 21:58:20.057418  
+INFO: Function: set_status_online 2023-03-12 21:58:23.194776  
+INFO: Function: set_status_online 2023-03-12 21:58:26.490699  
+INFO: Function: set_status_online 2023-03-12 21:58:29.662542  
+INFO: Function: set_status_online 2023-03-12 21:58:32.833122  
+INFO: Function: set_status_online 2023-03-12 21:58:36.100354  
+INFO: Function: set_status_online 2023-03-12 21:58:39.269080  
+INFO: Function: set_status_online 2023-03-12 21:58:42.505329  
+INFO: Function: set_status_online 2023-03-12 21:58:45.708548  
+INFO: Function: set_status_online 2023-03-12 21:58:48.868941  
+INFO: Function: set_status_online 2023-03-12 21:58:52.102594  
+INFO: Function: set_status_online 2023-03-12 21:58:55.299665  
+INFO: Function: set_status_online 2023-03-12 21:58:58.471116  
+INFO: Function: set_status_online 2023-03-12 21:59:01.704246  
+INFO: Function: set_status_online 2023-03-12 21:59:04.909802  
+INFO: Function: set_status_online 2023-03-12 21:59:08.109467  
+INFO: Function: set_status_online 2023-03-12 21:59:11.310267  
+INFO: Function: set_status_online 2023-03-12 21:59:14.455496  
+INFO: Function: set_status_online 2023-03-12 21:59:17.556278  
+INFO: Function: set_status_online 2023-03-12 21:59:20.726289  
+INFO: Function: set_status_online 2023-03-12 21:59:23.896562  
+INFO: Function: set_status_online 2023-03-12 21:59:27.126759  
+INFO: Function: set_status_online 2023-03-12 21:59:30.355934  
+INFO: Function: set_status_online 2023-03-12 21:59:33.510513  
+INFO: Function: set_status_online 2023-03-12 21:59:36.651822  
+INFO: Function: set_status_online 2023-03-12 21:59:39.832760  
+INFO: Function: set_status_online 2023-03-12 21:59:43.019618  
+INFO: Function: set_status_online 2023-03-12 21:59:46.256403  
+INFO: Function: set_status_online 2023-03-12 21:59:49.429759  
+INFO: Function: set_status_online 2023-03-12 21:59:52.544786  
+INFO: Function: set_status_online 2023-03-12 21:59:55.710601  
+INFO: Function: set_status_online 2023-03-12 21:59:58.797173  
+INFO: Function: set_status_online 2023-03-12 22:00:01.982280  
+INFO: Function: set_status_online 2023-03-12 22:00:05.045881  
+INFO: Function: set_status_online 2023-03-12 22:00:08.163157  
+INFO: Function: set_status_online 2023-03-12 22:00:11.290831  
+INFO: Function: set_status_online 2023-03-12 22:00:14.380002  
+INFO: Function: set_status_online 2023-03-12 22:00:17.456671  
+INFO: Function: set_status_online 2023-03-12 22:00:20.592733  
+INFO: Function: set_status_online 2023-03-12 22:00:23.631485  
+INFO: Function: set_status_online 2023-03-12 22:00:26.796075  
+INFO: Function: set_status_online 2023-03-12 22:00:29.965289  
+INFO: Function: set_status_online 2023-03-12 22:00:33.134704  
+INFO: Function: set_status_online 2023-03-12 22:00:36.320344  
+INFO: Function: set_status_online 2023-03-12 22:00:39.524060  
+INFO: Function: set_status_online 2023-03-12 22:00:42.689351  
+INFO: Function: set_status_online 2023-03-12 22:00:45.785981  
+INFO: Function: set_status_online 2023-03-12 22:00:48.923468  
+INFO: Function: set_status_online 2023-03-12 22:00:52.031082  
+INFO: Function: set_status_online 2023-03-12 22:00:55.196949  
+INFO: Function: set_status_online 2023-03-12 22:00:58.269590  
+INFO: Function: set_status_online 2023-03-12 22:01:01.420830  
+INFO: Function: set_status_online 2023-03-12 22:01:04.506999  
+INFO: Function: set_status_online 2023-03-12 22:01:07.671287  
+INFO: Function: set_status_online 2023-03-12 22:01:10.748424  
+INFO: Function: set_status_online 2023-03-12 22:01:13.875338  
+INFO: Function: set_status_online 2023-03-12 22:01:16.971692  
+INFO: Function: set_status_online 2023-03-12 22:01:20.063709  
+INFO: Function: set_status_online 2023-03-12 22:01:23.168904  
+INFO: Function: set_status_online 2023-03-12 22:01:26.311591  
+INFO: Function: set_status_online 2023-03-12 22:01:29.469737  
+INFO: Function: set_status_online 2023-03-12 22:01:32.526132  
+INFO: Function: set_status_online 2023-03-12 22:01:35.697017  
+INFO: Function: set_status_online 2023-03-12 22:01:38.788368  
+INFO: Function: set_status_online 2023-03-12 22:01:41.968461  
+INFO: Function: set_status_online 2023-03-12 22:01:45.158239  
+INFO: Function: set_status_online 2023-03-12 22:01:48.266687  
+INFO: Function: set_status_online 2023-03-12 22:01:51.425997  
+INFO: Function: set_status_online 2023-03-12 22:01:54.614291  
+INFO: Function: set_status_online 2023-03-12 22:01:57.764333  
+INFO: Function: set_status_online 2023-03-12 22:02:00.948063  
+INFO: Function: set_status_online 2023-03-12 22:02:04.087806  
+INFO: Function: set_status_online 2023-03-12 22:02:07.451438  
+INFO: Function: set_status_online 2023-03-12 22:02:10.558217  
+INFO: Function: set_status_online 2023-03-12 22:02:13.673262  
+INFO: Function: set_status_online 2023-03-12 22:02:16.778497  
+INFO: Function: set_status_online 2023-03-12 22:02:19.916524  
+INFO: Function: set_status_online 2023-03-12 22:02:23.118943  
+INFO: Function: set_status_online 2023-03-12 22:02:26.267731  
+INFO: Function: set_status_online 2023-03-12 22:02:29.406476  
+INFO: Function: set_status_online 2023-03-12 22:02:32.563053  
+INFO: Function: set_status_online 2023-03-12 22:02:35.621411  
+INFO: Function: set_status_online 2023-03-12 22:02:38.672377  
+INFO: Function: set_status_online 2023-03-12 22:02:41.766184  
+INFO: Function: set_status_online 2023-03-12 22:02:44.936786  
+INFO: Function: set_status_online 2023-03-12 22:02:48.082518  
+INFO: Function: set_status_online 2023-03-12 22:02:51.222176  
+INFO: Function: set_status_online 2023-03-12 22:02:54.345229  
+INFO: Function: set_status_online 2023-03-12 22:02:57.577922  
+INFO: Function: set_status_online 2023-03-12 22:03:00.734107  
+INFO: Function: set_status_online 2023-03-12 22:03:03.942933  
+INFO: Function: set_status_online 2023-03-12 22:03:07.144387  
+INFO: Function: set_status_online 2023-03-12 22:03:10.366827  
+INFO: Function: set_status_online 2023-03-12 22:03:13.594996  
+INFO: Function: set_status_online 2023-03-12 22:03:16.803715  
+INFO: Function: set_status_online 2023-03-12 22:03:20.036034  
+INFO: Function: set_status_online 2023-03-12 22:03:23.288949  
+INFO: Function: set_status_online 2023-03-12 22:03:26.452525  
+INFO: Function: set_status_online 2023-03-12 22:03:29.596832  
+INFO: Function: set_status_online 2023-03-12 22:03:32.757708  
+INFO: Function: set_status_online 2023-03-12 22:03:35.923834  
+INFO: Function: set_status_online 2023-03-12 22:03:39.092280  
+INFO: Function: set_status_online 2023-03-12 22:03:42.304275  
+INFO: Function: set_status_online 2023-03-12 22:03:45.496970  
+INFO: Function: set_status_online 2023-03-12 22:03:48.655160  
+INFO: Function: set_status_online 2023-03-12 22:03:51.807776  
+INFO: Function: set_status_online 2023-03-12 22:03:54.970294  
+INFO: Function: set_status_online 2023-03-12 22:03:58.143188  
+INFO: Function: set_status_online 2023-03-12 22:04:01.303720  
+INFO: Function: set_status_online 2023-03-12 22:04:04.517625  
+INFO: Function: set_status_online 2023-03-12 22:04:07.704553  
+INFO: Function: set_status_online 2023-03-12 22:04:10.839731  
+INFO: Function: set_status_online 2023-03-12 22:04:13.973660  
+INFO: Function: set_status_online 2023-03-12 22:04:17.115110  
+INFO: Function: set_status_online 2023-03-12 22:04:20.281013  
+INFO: Function: set_status_online 2023-03-12 22:04:23.459708  
+INFO: Function: set_status_online 2023-03-12 22:04:26.614564  
+INFO: Function: set_status_online 2023-03-12 22:04:29.833536  
+INFO: Function: set_status_online 2023-03-12 22:04:33.277987  
+INFO: Function: set_status_online 2023-03-12 22:04:36.522843  
+INFO: Function: set_status_online 2023-03-12 22:04:39.705998  
+INFO: Function: set_status_online 2023-03-12 22:04:42.913510  
+INFO: Function: set_status_online 2023-03-12 22:04:46.130283  
+INFO: Function: set_status_online 2023-03-12 22:04:49.323767  
+INFO: Function: set_status_online 2023-03-12 22:04:52.561796  
+INFO: Function: set_status_online 2023-03-12 22:04:55.779300  
+INFO: Function: set_status_online 2023-03-12 22:04:58.944044  
+INFO: Function: set_status_online 2023-03-12 22:05:02.175934  
+INFO: Function: set_status_online 2023-03-12 22:05:05.389689  
+INFO: Function: set_status_online 2023-03-12 22:05:08.618026  
+INFO: Function: set_status_online 2023-03-12 22:05:11.842284  
+INFO: Function: set_status_online 2023-03-12 22:05:15.023654  
